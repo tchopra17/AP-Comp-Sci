@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class SinglyLinkedList<E extends Comparable<E>>
 {
     private ListNode<E> first;  // first element
@@ -168,7 +169,7 @@ public class SinglyLinkedList<E extends Comparable<E>>
         return null;
     }
 
-    ListNode remove(E element)
+    public ListNode<E> remove(E element)
     {
         ListNode<E> back = null;
         ListNode<E> temp = first;
@@ -178,7 +179,7 @@ public class SinglyLinkedList<E extends Comparable<E>>
             back = temp;
             temp = temp.getNext();
         }
-        if (temp ==null)
+        if (temp == null)
         {
             return null;
         }
@@ -199,22 +200,20 @@ public class SinglyLinkedList<E extends Comparable<E>>
         last = null;
     }
 
-    public void printBackwards ()
+    public void printBackwards()
     {
         printBackwards(first);
     }
 
-    private void printBackwards (ListNode<E> first)
+    private void printBackwards (ListNode<E> node)
     {
-        ListNode<E> temp = first;
-        if (temp != null)
+        ListNode<E> temp = node;
+        if (temp == null)
         {
-            temp = temp.getNext();
-            printBackwards(temp);
+            return;
         }
-        if (temp != null)
-            System.out.println(temp.getValue() + " ");
-        System.out.println();
+        printBackwards(temp.getNext());
+        System.out.println(temp.getValue());
     }
 }
 

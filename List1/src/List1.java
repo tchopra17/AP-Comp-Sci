@@ -10,7 +10,6 @@ public class List1
     public void createList(int howMany)
     {
         for (int k = 1; k <= howMany; k++)
-            //myList.addLast(new Integer(k));
            myList.addFirst(new Integer(k));
     }
 
@@ -24,12 +23,17 @@ public class List1
         System.out.println("Last Element: " + myList.getLast());
     }
 
-    public void printList ()
+    public void printListBackwards()
+    {
+        System.out.print("SinglyLinkedList: ");
+        myList.printBackwards();
+    }
+    public void printList()
     {
         System.out.print("SinglyLinkedList: ");
         myList.printList();
     }
-
+    
     public void size()
     {
         System.out.println("Nodes: " + myList.size());
