@@ -1,7 +1,9 @@
+
+import apcslib.*;
+import java.util.*;
 public class List1
 {
-    SinglyLinkedList myList;
-
+    SinglyLinkedList<Integer> myList;
     public List1()
     {
         myList = new SinglyLinkedList<Integer>();
@@ -10,7 +12,10 @@ public class List1
     public void createList(int howMany)
     {
         for (int k = 1; k <= howMany; k++)
-           myList.addFirst(new Integer(k));
+        {
+            //myList.addLast(new Integer(k));
+            myList.addFirst(new Integer(k));
+        }
     }
 
     public void displayFirst()
@@ -23,17 +28,19 @@ public class List1
         System.out.println("Last Element: " + myList.getLast());
     }
 
-    public void printListBackwards()
+    public void printList ()
     {
         System.out.print("SinglyLinkedList: ");
-        myList.printBackwards();
+        //myList.printList();
+        System.out.println();
+        SLLIterator<Integer> iter = myList.iterator();
+        while (iter.hasNext())
+        {
+            Integer obj = iter.next();
+            System.out.println(obj + " ");
+        }
     }
-    public void printList()
-    {
-        System.out.print("SinglyLinkedList: ");
-        myList.printList();
-    }
-    
+
     public void size()
     {
         System.out.println("Nodes: " + myList.size());
@@ -47,7 +54,7 @@ public class List1
     public static void main(String[] args)
     {
         List1 sList = new List1();
-        
+
         sList.createList(20);
         sList.displayFirst();
         sList.displayLast();

@@ -124,8 +124,8 @@ public class SinglyLinkedList<E extends Comparable<E>>
         ListNode<E> temp = first;  // start from the first node
         while (temp != null)
         {
-            temp = temp.getNext();
             size++;
+            temp = temp.getNext();
         }
         return size;
     }
@@ -215,5 +215,9 @@ public class SinglyLinkedList<E extends Comparable<E>>
         printBackwards(temp.getNext());
         System.out.println(temp.getValue());
     }
+    public SLLIterator<E> iterator()
+	{
+		return new SLLIterator<E>(first);
+	}
 }
 
